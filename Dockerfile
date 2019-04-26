@@ -2,7 +2,7 @@ FROM hashicorp/packer:light
 MAINTAINER Jesse DeFer <packer-ansible@dotd.com>
 
 ENV DOCKER_CHANNEL stable
-ENV DOCKER_VERSION 18.09.1
+ENV DOCKER_VERSION 18.09.5
 
 RUN adduser -D -u 1000 jenkins
 
