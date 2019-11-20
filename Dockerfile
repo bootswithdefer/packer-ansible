@@ -41,9 +41,12 @@ RUN set -eux; \
 	dockerd --version; \
         docker --version
 
+COPY plugins /usr/share/ansible/plugins/
+
 ENV ANSIBLE_FORCE_COLOR=True
 ENV ANSIBLE_HOST_KEY_CHECKING=False
 ENV ANSIBLE_PIPELINING=True
+ENV AWS_DEFAULT_REGION=us-west-2
 
 COPY docker-entrypoint.sh /
 
