@@ -41,6 +41,10 @@ RUN set -eux; \
 	dockerd --version; \
         docker --version
 
+ENV ANSIBLE_FORCE_COLOR=True
+ENV ANSIBLE_HOST_KEY_CHECKING=False
+ENV ANSIBLE_PIPELINING=True
+
 COPY docker-entrypoint.sh /
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
