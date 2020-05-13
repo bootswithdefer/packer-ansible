@@ -10,7 +10,7 @@ RUN mkdir -p /home/jenkins/.ssh && chmod 0700 /home/jenkins/.ssh && echo "github
 
 RUN apk --no-cache add git openssh-client rsync jq py-pip py-boto py-six py-cryptography py-bcrypt py-asn1crypto py-jsonschema py-pynacl py-asn1 py-markupsafe py-paramiko py-dateutil py-docutils py-rsa libxml2 libxslt libffi-dev openssl-dev make && \
     apk --no-cache add gcc python2-dev musl-dev linux-headers libxml2-dev libxslt-dev postgresql-dev && \
-    pip install ansible jsonmerge awscli boto boto3 hvac ansible-modules-hashivault molecule python-gilt python-jenkins lxml openshift docker docker-compose mitogen yamale ansible-lint yamllint kubernetes-validate psycopg2 && \
+    pip install ansible jsonmerge awscli boto boto3 hvac ansible-modules-hashivault molecule python-gilt python-jenkins lxml openshift docker docker-compose mitogen yamale ansible-lint yamllint kubernetes-validate psycopg2 dnspython && \
     apk del gcc python2-dev musl-dev linux-headers libxml2-dev libxslt-dev libffi-dev openssl-dev make
 
 RUN set -eux; \
