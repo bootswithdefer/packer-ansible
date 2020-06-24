@@ -9,12 +9,12 @@ MISSING = object()
 def kms_decrypt(ciphertext, context=MISSING):
     try:
         decoded = base64.b64decode(ciphertext)
-	plaintext = ''
-	if context is MISSING:
+        plaintext = ''
+        if context is MISSING:
             plaintext = kms.decrypt(CiphertextBlob=decoded).get('Plaintext')
-	else:
+        else:
             plaintext = kms.decrypt(CiphertextBlob=decoded, EncryptionContext=context).get('Plaintext')
-	return plaintext
+        return plaintext
     except Exception as e:
         raise AnsibleFilterError(e)
 
