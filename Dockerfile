@@ -41,6 +41,8 @@ RUN set -eux; \
 	dockerd --version; \
         docker --version
 
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
 COPY plugins /usr/share/ansible/plugins/
 
 ENV ANSIBLE_FORCE_COLOR=True
