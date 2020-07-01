@@ -14,7 +14,7 @@ def kms_decrypt(ciphertext, context=MISSING):
             plaintext = kms.decrypt(CiphertextBlob=decoded).get('Plaintext')
         else:
             plaintext = kms.decrypt(CiphertextBlob=decoded, EncryptionContext=context).get('Plaintext')
-        return plaintext
+        return plaintext.decode()
     except Exception as e:
         raise AnsibleFilterError(e)
 
