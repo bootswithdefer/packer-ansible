@@ -2,7 +2,7 @@ FROM hashicorp/packer:light
 MAINTAINER Jesse DeFer <packer-ansible@dotd.com>
 
 ENV DOCKER_CHANNEL stable
-ENV DOCKER_VERSION 20.10.7
+ENV DOCKER_VERSION 20.10.8
 
 RUN adduser -D -u 1000 jenkins
 
@@ -43,6 +43,8 @@ RUN set -eux; \
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
 COPY plugins /usr/share/ansible/plugins/
+
+RUN ansible-galaxy collection install infoblox.nios_modules -p /usr/share/ansible/collections
 
 ENV ANSIBLE_FORCE_COLOR=True
 ENV ANSIBLE_HOST_KEY_CHECKING=False
