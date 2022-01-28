@@ -2,15 +2,16 @@ FROM hashicorp/packer:light
 MAINTAINER Jesse DeFer <packer-ansible@dotd.com>
 
 ENV DOCKER_CHANNEL stable
-ENV DOCKER_VERSION 20.10.9
+ENV DOCKER_VERSION 20.10.12
 
 RUN adduser -D -u 1000 jenkins
 
 RUN mkdir -p /home/jenkins/.ssh && chmod 0700 /home/jenkins/.ssh && echo "github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==" > /home/jenkins/.ssh/authorized_keys > /home/jenkins/.ssh/known_hosts && chmod 0600 /home/jenkins/.ssh/* && chown -R jenkins:jenkins /home/jenkins/.ssh
 
-RUN apk --no-cache add git openssh-client rsync jq py-pip py-boto py-six py-cryptography py-bcrypt py-asn1crypto py-jsonschema py-pynacl py-asn1 py-markupsafe py-paramiko py-dateutil py-docutils py-rsa libxml2 libxslt libffi-dev openssl-dev make gcc python3-dev musl-dev linux-headers libxml2-dev libxslt-dev postgresql-dev zip && \
-    pip install ansible jsonmerge awscli boto boto3 hvac ansible-modules-hashivault molecule python-gilt python-jenkins lxml openshift docker docker-compose mitogen yamale ansible-lint yamllint kubernetes-validate psycopg2 dnspython && \
-    apk del gcc python3-dev musl-dev linux-headers libxml2-dev libxslt-dev libffi-dev openssl-dev make
+RUN apk --no-cache add git openssh-client rsync jq py-pip py-boto py-six py-cryptography py-bcrypt py-asn1crypto py-jsonschema py-pynacl py-asn1 py-markupsafe py-paramiko py-dateutil py-docutils py-rsa libxml2 libxslt libffi-dev openssl-dev make gcc python3-dev musl-dev linux-headers libxml2-dev libxslt-dev postgresql-dev zip libselinux-dev
+RUN pip install ansible jsonmerge awscli boto boto3 hvac ansible-modules-hashivault molecule python-gilt python-jenkins lxml openshift docker docker-compose mitogen yamale ansible-lint yamllint kubernetes-validate psycopg2 dnspython selinux
+RUN apk del gcc python3-dev musl-dev linux-headers libxml2-dev libxslt-dev libffi-dev openssl-dev make
+RUN apk --no-cache upgrade
 
 RUN set -eux; \
 	\
