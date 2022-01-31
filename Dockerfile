@@ -1,5 +1,4 @@
 FROM hashicorp/packer:light
-MAINTAINER Jesse DeFer <packer-ansible@dotd.com>
 
 ENV DOCKER_CHANNEL stable
 ENV DOCKER_VERSION 20.10.12
