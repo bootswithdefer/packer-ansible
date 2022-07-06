@@ -9,7 +9,7 @@ RUN mkdir -p /home/jenkins/.ssh && chmod 0700 /home/jenkins/.ssh && echo "github
 
 RUN apk --no-cache add git openssh-client rsync jq py-pip py-boto py-six py-cryptography py-asn1crypto py-jsonschema py-pynacl py-asn1 py-markupsafe py-paramiko py-dateutil py-docutils py-rsa libxml2 libxslt libffi-dev openssl-dev make gcc python3-dev musl-dev linux-headers libxml2-dev libxslt-dev postgresql-dev zip libselinux-dev yaml py3-yaml
 
-RUN pip install jsonmerge python-gilt python-jenkins lxml yamale yamllint psycopg2 dnspython selinux
+RUN pip install jsonmerge python-gilt python-jenkins lxml yamale yamllint psycopg2 dnspython selinux toml
 RUN pip install kubernetes-validate
 RUN pip install ansible hvac ansible-modules-hashivault molecule mitogen ansible-lint
 RUN pip install docker docker-compose
