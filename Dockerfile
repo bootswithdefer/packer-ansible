@@ -5,7 +5,7 @@ ENV DOCKER_VERSION 20.10.18
 
 RUN adduser -D -u 1000 jenkins
 
-RUN apk --no-cache add git openssh-client rsync jq py-pip py-boto py-six py-cryptography py-asn1crypto py-jsonschema py-pynacl py-asn1 py-markupsafe py-paramiko py-dateutil py-docutils py-rsa libxml2 libxslt libffi-dev openssl-dev make gcc python3-dev musl-dev linux-headers libxml2-dev libxslt-dev postgresql-dev zip libselinux-dev yaml py3-yaml mariadb py3-mysqlclient
+RUN apk --no-cache add git openssh-client rsync jq py-pip py-boto py-six py-cryptography py-asn1crypto py-jsonschema py-pynacl py-asn1 py-markupsafe py-paramiko py-dateutil py-docutils py-rsa libxml2 libxslt libffi-dev openssl-dev make gcc python3-dev musl-dev linux-headers libxml2-dev libxslt-dev postgresql-dev zip libselinux-dev yaml py3-yaml mariadb mariadb-client py3-mysqlclient postgresql-client
 
 RUN ssh-keyscan github.com > /etc/ssh/ssh_known_hosts
 
