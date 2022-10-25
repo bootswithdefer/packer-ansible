@@ -53,6 +53,7 @@ COPY plugins /usr/share/ansible/plugins/
 RUN ansible-galaxy collection install infoblox.nios_modules -p /usr/share/ansible/collections
 RUN ansible-galaxy collection install community.aws -p /usr/share/ansible/collections
 RUN ansible-galaxy collection install community.mysql -p /usr/share/ansible/collections
+RUN ansible-galaxy collection install amazon.aws -p /usr/share/ansible/collections
 
 ENV ANSIBLE_FORCE_COLOR=True
 ENV ANSIBLE_HOST_KEY_CHECKING=False
